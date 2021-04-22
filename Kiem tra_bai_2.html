@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = prompt("Nhập vào số cần kiểm tra")
+    function testnumber(number) {
+        let sum = 0;
+        for (let i = 1; i < number; i++) {
+            sum += i
+            if (number % i == 0 && number == sum) {
+                return document.write("Đây là số hoàn hảo")
+            }
+        }document.write("Đây không phải số hoàn hảo")
+    }
+    testnumber(number);
+</script>
+</body>
+</html>

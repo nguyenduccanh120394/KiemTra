@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addClient()">thêm khách hàng</button>
+<table id = "client_list " border="1px"></table>
+<script>
+    let clients = ["Nguyễn Đức Cảnh", "Nguyễn Đức Chiến"];
+    function displayClient(){
+        let str = "";
+        for (let i =0; i < clients.length; i++){
+            str+= '<tr>' +
+                '<td>' +clients[i]+'</td>'+
+                '<td><button onclick="deleteClient('+i+')">xóa</button></td>'+
+                '<td><button onclick="updateClient('+i+')">sửa</button></td>'+
+                '<tr/>'
+        }
+        document.getElementById("client_list ").innerHTML=str;
+    }
+    displayClient();
+    function addClient(){
+        let client = prompt("tên khách hàng");
+        clients.push(client);
+        displayClient();
+    }
+    function updateClient(i) {
+        clients[i] = prompt("nhập một tên mới");
+        displayClient();
+    }
+    function deleteClient(i){
+        let check = confirm("bạn có muốn xóa khách hàng này không");
+        if (check){
+            clients.splice(i,1);
+            displayClient();
+        }else{
+            alert("thôi không xóa nữa");
+        }
+    }
+</script>
+</body>
+</html>
